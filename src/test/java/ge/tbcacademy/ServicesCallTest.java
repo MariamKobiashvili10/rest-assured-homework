@@ -80,6 +80,7 @@ public class ServicesCallTest {
                 .formParam("petId", petId)
                 .formParam("name", name)
                 .formParam("status", status)
+                .when()
                 .post("/pet/{petId}", petId);
 
         response.then()
@@ -99,6 +100,7 @@ public class ServicesCallTest {
         response.then().statusCode(404);
         response.then().body("code", equalTo(404));
     }
+
     @Test(priority = 5)
     public void testUserLogin() {
         String username = Constants.USERNAME;
