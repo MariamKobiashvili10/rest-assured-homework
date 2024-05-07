@@ -1,6 +1,6 @@
 package ge.tbcacademy.data.steps;
 
-import ge.tbcacademy.data.ConstantsForBookingUpdate;
+import ge.tbcacademy.data.constants.ConstantsForBookingUpdate;
 import ge.tbcacademy.data.RequestSpecs;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;

@@ -1,6 +1,6 @@
 package ge.tbcacademy;
 
-import ge.tbcacademy.data.ConstantsForBookingUpdate;
+import ge.tbcacademy.data.constants.ConstantsForBookingUpdate;
 import ge.tbcacademy.data.steps.BookingUpdateSteps;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;

@@ -1,6 +1,6 @@
 package ge.tbcacademy.data.steps;
 
-import ge.tbcacademy.data.ConstantsForPetStore;
+import ge.tbcacademy.data.constants.ConstantsForPetStore;
 import ge.tbcacademy.data.RequestSpecs;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -9,9 +9,6 @@ import org.hamcrest.Matchers;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;

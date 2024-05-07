@@ -1,4 +1,4 @@
-package ge.tbcacademy.data;
+package ge.tbcacademy.data.constants;
 
 public class ConstantsForPetStore {
     public static final String

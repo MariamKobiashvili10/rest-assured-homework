@@ -1,6 +1,6 @@
 package ge.tbcacademy;
 
-import ge.tbcacademy.data.ConstantsForPetStore;
+import ge.tbcacademy.data.constants.ConstantsForPetStore;
 import ge.tbcacademy.data.steps.NewPetAddingSteps;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;

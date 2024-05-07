@@ -1,8 +1,7 @@
 package ge.tbcacademy.data.steps;
 
-import ge.tbcacademy.data.ConstantsForBookStore;
+import ge.tbcacademy.data.constants.ConstantsForBookStore;
 import ge.tbcacademy.data.RequestSpecs;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 

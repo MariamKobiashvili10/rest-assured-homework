@@ -1,6 +1,6 @@
 package ge.tbcacademy.data.steps;
 
-import ge.tbcacademy.data.ConstantsForPetStore;
+import ge.tbcacademy.data.constants.ConstantsForPetStore;
 import ge.tbcacademy.data.RequestSpecs;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

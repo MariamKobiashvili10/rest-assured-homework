@@ -1,4 +1,4 @@
-package ge.tbcacademy.data;
+package ge.tbcacademy.data.constants;
 
 public class ConstantsForBookingUpdate {
     public static final String

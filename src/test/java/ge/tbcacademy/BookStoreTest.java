@@ -1,8 +1,6 @@
 package ge.tbcacademy;
 
-import ge.tbcacademy.data.Constants;
-import ge.tbcacademy.data.ConstantsForBookStore;
-import ge.tbcacademy.data.ConstantsForPetStore;
+import ge.tbcacademy.data.constants.ConstantsForBookStore;
 import ge.tbcacademy.data.steps.BookStoreSteps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

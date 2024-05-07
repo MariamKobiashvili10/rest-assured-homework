@@ -1,5 +1,8 @@
 package ge.tbcacademy.data;
 
+import ge.tbcacademy.data.constants.ConstantsForBookStore;
+import ge.tbcacademy.data.constants.ConstantsForBookingUpdate;
+import ge.tbcacademy.data.constants.ConstantsForPetStore;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.*;
 import io.restassured.specification.*;
