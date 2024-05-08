@@ -1,5 +1,5 @@
 package ge.tbcacademy;
-import ge.tbcacademy.data.Constants;
+import ge.tbcacademy.data.constants.Constants;
 import ge.tbcacademy.data.someDataProviderClass;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
