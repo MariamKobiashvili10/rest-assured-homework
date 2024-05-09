@@ -16,4 +16,5 @@ public class ConstantsForBookingUpdate {
             BOOKING_ID = 10,
             TOTAL_PRICE = 120;
 
+    public static final String URL ="https://restful-booker.herokuapp.com" ;
 }

@@ -20,7 +20,7 @@ public class RestfulBookerSteps {
     Integer bookingId;
 
     public RestfulBookerSteps getToken(){
-        RestAssured.baseURI = "https://restful-booker.herokuapp.com";
+        RestAssured.baseURI = ConstantsForBookingUpdate.URL;
         AuthWithToken authRequest = new AuthWithToken();
 
         authRequest.setUsername("admin");
