@@ -1,8 +1,7 @@
 package ge.tbcacademy;
 
 import ge.tbcacademy.data.constants.ConstantsForBookingUpdate;
-import ge.tbcacademy.data.steps.BookingUpdateSteps;
-import org.json.JSONObject;
+import ge.tbcacademy.data.steps.restful.BookingUpdateSteps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,10 +15,8 @@ public class BookingUpdateTest {
 
     @Test
     public void testBookingUpdate() {
-        JSONObject requestBody = bookingUpdateSteps.createBookingUpdateRequestBody();
-
         bookingUpdateSteps.
-                updateBooking(ConstantsForBookingUpdate.BOOKING_ID, requestBody)
+                updateBooking(ConstantsForBookingUpdate.BOOKING_ID)
                 .logIfStatusCodeIsProvided(bookingUpdateSteps.statusCodeExtracted());
     }
 }

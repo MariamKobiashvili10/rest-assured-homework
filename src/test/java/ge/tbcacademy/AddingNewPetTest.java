@@ -1,32 +1,36 @@
 package ge.tbcacademy;
 
 import ge.tbcacademy.data.constants.ConstantsForPetStore;
-import ge.tbcacademy.data.steps.NewPetAddingSteps;
-import org.json.JSONObject;
+import ge.tbcacademy.data.steps.petstore.NewPetAddingStepsAndPictureUpload;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AddingNewPetTest {
-    public static NewPetAddingSteps newPetAddingSteps;
+    public static NewPetAddingStepsAndPictureUpload newPetAddingStepsAndPictureUpload;
 
     @BeforeClass
     public static void beforeClass(){
-        newPetAddingSteps = new NewPetAddingSteps();
+        newPetAddingStepsAndPictureUpload = new NewPetAddingStepsAndPictureUpload();
 
     }
     @Test
     public void addingNewPetAndOtherThings(){
-        JSONObject body = newPetAddingSteps.createParametrizedRequestBody();
 
-        newPetAddingSteps.addingPet(body)
+
+        newPetAddingStepsAndPictureUpload.addingPet()
                 .ensuringStatusCode()
-                .ensuringPetWasAdded()
+                .ensurePetWasAdded()
                 .findByStatus()
                 .validateResponseContainsId(ConstantsForPetStore.ID)
-                .validatePetObject(body)
                 .updatePetWithFormData(ConstantsForPetStore.ID)
                 .getNewPetWithId(ConstantsForPetStore.ID)
                 .validateUpdatedNameAndStatus();
-
+    }
+    @Test
+    public void updateImage(){
+        newPetAddingStepsAndPictureUpload.uploadingPicture()
+                .validatingMetadataInMessage()
+                .validatingImageInMessage()
+                .validatingFileSize();
     }
 }

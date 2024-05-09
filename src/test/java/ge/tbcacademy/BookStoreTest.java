@@ -1,7 +1,7 @@
 package ge.tbcacademy;
 
 import ge.tbcacademy.data.constants.ConstantsForBookStore;
-import ge.tbcacademy.data.steps.BookStoreSteps;
+import ge.tbcacademy.data.steps.bookStore.BookStoreSteps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,5 +18,11 @@ public class BookStoreTest {
                 getSpecificResponse()
                 .validatingPages()
                 .validatingAuthors(ConstantsForBookStore.AUTHOR1, ConstantsForBookStore.AUTHOR2);
+    }
+    @Test
+    public void testingBooks2(){
+        bookStoreSteps.getSpecificResponse()
+                .validatingPages()
+                .validatinglastTwoAuthors(ConstantsForBookStore.LAST_AUTHOR, ConstantsForBookStore.BEFORE_LAST_AUTHOR);
     }
 }
