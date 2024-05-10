@@ -1,7 +1,12 @@
-package ge.tbcacademy.data.models.modelForPetStore;
+package ge.tbcacademy.data.models.xmlpetstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "category")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Category{
 
 	@JsonProperty("name")

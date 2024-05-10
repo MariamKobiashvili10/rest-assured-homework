@@ -1,8 +1,13 @@
-package ge.tbcacademy.data.models.modelForPetStore;
+package ge.tbcacademy.data.models.xmlpetstore;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "Pet")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Pet{
 
 	@JsonProperty("photoUrls")
