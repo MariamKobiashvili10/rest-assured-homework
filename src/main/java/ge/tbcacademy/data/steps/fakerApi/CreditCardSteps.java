@@ -1,36 +1,38 @@
 package ge.tbcacademy.data.steps.fakerApi;
 
+import ge.tbcacademy.data.utils.RequestSpecs;
+import ge.tbcacademy.data.constants.FakerApiConstants;
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.hamcrest.MatcherAssert;
-import org.json.JSONObject;
+import io.restassured.specification.RequestSpecification;
 
-import javax.xml.validation.Schema;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CreditCardSteps {
-
+RequestSpecification requestSpecification;
     String responseBody;
-    public String callCreditCardApiAndGetResponseBody() {
-        RestAssured.baseURI = "https://fakerapi.it/api/v1";
 
-        Response response = RestAssured.given()// Set the query parameter
-                .get("/credit_cards?_quantity=2");
+    public CreditCardSteps(){
+        requestSpecification = RequestSpecs.getBaseRequestForFakerApi();
+    }
+    @Step("Call Credit Card API and Get Response Body")
+    public CreditCardSteps callCreditCardApiAndGetResponseBody() {
+
+        Response response = RestAssured.given(requestSpecification)
+                .filter(new AllureRestAssured())
+                .when()
+                .get(FakerApiConstants.ENDPOINT);
 
         responseBody = response.getBody().asString();
 
-        return responseBody;
+        return this;
     }
+    @Step("Validate Schema")
     public CreditCardSteps validateSchema() {
-        assertThat(callCreditCardApiAndGetResponseBody(), matchesJsonSchemaInClasspath("credit_cards_schema.json"));
+        assertThat(responseBody, matchesJsonSchemaInClasspath("credit_cards_schema.json"));
         return this;
 
     }

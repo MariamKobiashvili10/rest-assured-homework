@@ -3,6 +3,7 @@ package ge.tbcacademy.data.steps.petstore;
 import ge.tbcacademy.data.constants.ConstantsForPetStore;
 import ge.tbcacademy.data.models.modelForPetStore.request.PetStoreRequest;
 import ge.tbcacademy.data.models.modelForPetStore.rresponse.PostPetStore;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,6 +13,7 @@ import static org.hamcrest.Matchers.is;
 public class PlaceNewOrderSteps {
     private final PetStoreRequest petStoreRequest = new PetStoreRequest();
 
+    @Step("Place Order: ID={0}, Pet ID={1}, Quantity={2}, Complete={3}")
     public PostPetStore placeOrder(int id, int petId, int quantity, boolean complete) {
         PostPetStore order = new PostPetStore()
                 .id(id)
@@ -25,6 +27,7 @@ public class PlaceNewOrderSteps {
         return orderResponse.as(PostPetStore.class);
 
     }
+    @Step("Asserting information in Order")
     public PlaceNewOrderSteps asserting(){
         PostPetStore placeOrder = placeOrder(ConstantsForPetStore.ID, ConstantsForPetStore.PET_ID, ConstantsForPetStore.QUANTITY, true);
         assertThat(placeOrder.id(), equalTo(ConstantsForPetStore.ID));
