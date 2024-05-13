@@ -4,34 +4,29 @@ import ge.tbcacademy.data.constants.ConstantsForPetStore;
 import ge.tbcacademy.data.models.xmlpetstore.Category;
 import ge.tbcacademy.data.models.xmlpetstore.Pet;
 import ge.tbcacademy.data.models.xmlpetstore.TagsItem;
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.mapper.ObjectMapperType;
-import org.hamcrest.Matchers;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.restassured.path.xml.XmlPath.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class PostNewPetXmlSteps {
     Pet petsResponse;
-    public Pet createBody() {
-        Pet pet = new Pet();
-
-
+    Pet pet;
+    @Step("Creating a new pet")
+    public PostNewPetXmlSteps createBody() {
+        pet = new Pet();
         pet.setId(ConstantsForPetStore.ID);
-
-        pet.setName("doggie");
-
-
+        pet.setName(ConstantsForPetStore.NAME);
         pet.setStatus(ConstantsForPetStore.STATUS);
 
         Category category = new Category();
         category.setId(1);
-        category.setName("Dogs");
+        category.setName(ConstantsForPetStore.CATEGORIES_NAME);
         pet.setCategory(category);
 
         TagsItem tag = new TagsItem();
@@ -41,23 +36,29 @@ public class PostNewPetXmlSteps {
         tagsList.add(tag);
         pet.setTags(tagsList);
 
-        return pet;
+        return this;
     }
 
+    @Step("Posting the new pet to the API")
     public PostNewPetXmlSteps postingPet(){
          petsResponse = RestAssured.given()
-                .baseUri("https://petstore3.swagger.io/api/v3")
+                 .filter(new AllureRestAssured())
+                .baseUri(ConstantsForPetStore.BASEURI)
                 .contentType("application/json")
                 .accept("application/xml")
-                .body(createBody())
+                .body(pet)
                 .when()
-                .post("/pet")
+                .post(ConstantsForPetStore.PET_ENDPOINT)
                 .then().log().body().statusCode(200).extract().as(Pet.class);
       return this;
     }
+    @Step("Verifying the posted pet")
+
     public PostNewPetXmlSteps asserting(){
         assertThat(petsResponse.getId(), equalTo(ConstantsForPetStore.ID));
         assertThat(petsResponse.getStatus(),equalTo(ConstantsForPetStore.STATUS));
+        assertThat(petsResponse.getName(), equalTo(ConstantsForPetStore.NAME));
+        assertThat(petsResponse.getCategory().getName(), equalTo(ConstantsForPetStore.CATEGORIES_NAME));
         return this;
     }
 }

@@ -10,11 +10,11 @@ public class ConstantsForBookingUpdate {
             CHECKIN = "2013-02-23",
             CHECKOUT = "2014-10-23",
             UPDATED_FIRST_NAME = "UpdatedFirstName",
-            UPDATED_LAST_NAME = "UpdatedLastName";
+            UPDATED_LAST_NAME = "UpdatedLastName",
+            SECOND_FIRST_NAME = "Ana",
+            SECOND_LAST_NAME = "Maisuradze";
 
     public static final int
             BOOKING_ID = 10,
             TOTAL_PRICE = 120;
-
-    public static final String URL ="https://restful-booker.herokuapp.com" ;
 }
