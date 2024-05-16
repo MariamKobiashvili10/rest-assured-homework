@@ -76,7 +76,7 @@ GetEmployeeByIdRequest getEmployeeByIdRequest;
                 .header("SOAPAction", "interfaces.soap.springboot.example.com/exampleSoapHttp/getEmployeeByIdRequest")
                 .body(body)
                 .filter(new AllureRestAssured())
-                .post(ConstantsForSpring.URL)
+                .post(ConstantsForSpring.URL);
         response.then().statusCode(200);
 
         return this;
