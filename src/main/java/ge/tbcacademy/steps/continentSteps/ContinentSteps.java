@@ -1,11 +1,10 @@
-package ge.tbcacademy.data.steps;
+package ge.tbcacademy.steps.continentSteps;
 
 import ge.tbcacademy.data.constants.ConstantsForContinents;
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 
 import java.util.HashSet;
 import java.util.List;

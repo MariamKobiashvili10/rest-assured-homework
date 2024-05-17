@@ -1,10 +1,10 @@
-package ge.tbcacademy.data.steps;
+package ge.tbcacademy.steps.employeeSteps;
 
 import com.example.springboot.soap.interfaces.*;
 import ge.tbcacademy.data.constants.ConstantsForSpring;
-import ge.tbcacademy.data.util.CalendarHelper;
-import ge.tbcacademy.data.util.HelperForResponseXpath;
-import ge.tbcacademy.data.util.Marshall;
+import ge.tbcacademy.util.CalendarHelper;
+import ge.tbcacademy.util.HelperForResponseXpath;
+import ge.tbcacademy.util.Marshall;
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
@@ -22,7 +22,7 @@ Response response;
 GetEmployeeByIdRequest getEmployeeByIdRequest;
     UpdateEmployeeRequest updateEmployeeRequest;
 
-    @Step("creatingBody")
+    @Step("creating Body for new employee")
     public EmployeesSteps createRequestBody() {
         objectFactory = new ObjectFactory();
         employeeInfo = objectFactory.createEmployeeInfo();
@@ -133,8 +133,8 @@ GetEmployeeByIdRequest getEmployeeByIdRequest;
                 .body(hasXPath("//ns2:message", new HelperForResponseXpath(), containsString(ConstantsForSpring.DELETED)));;
         return this;
     }
-    @Step("Validating Deleted employee")
-    public EmployeesSteps validatingDeletedEmployee(){
+    @Step("Trying to get Deleted employee using Id But statuscode should be 500")
+    public EmployeesSteps tryingToGetDeletedEmployeeById(){
         body = Marshall.marshallSoapRequest(getEmployeeByIdRequest);
 
         response = given()

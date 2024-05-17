@@ -1,10 +1,7 @@
 package ge.tbcacademy;
 
-import ge.tbcacademy.data.steps.EmployeesSteps;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import ge.tbcacademy.steps.employeeSteps.EmployeesSteps;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,23 +14,24 @@ public class EmployeesTest {
     public void setUp(){
         employeesSteps = new EmployeesSteps();
     }
-            @Test(description = "making some actions  about employees")
-            @Story("Adding, updating, and deleting employee records")
-            @Description("This test case verifies the complete lifecycle of an employee record: adding, updating, and deleting")
-            public void addingEmployee(){
-        employeesSteps
-                .createRequestBody()
-                .wrappingBodyIntoSoapRequest()
-                .sendingRequest()
-                .validating()
-                .getEmployeeById()
-                .validatingWithId()
-                .updateEmployee()
-                .assertingUpdatedResponse()
-                .deletingEmployee()
-                .validatingDeletedEmployee();
 
-
+            @Story("Adding new employee using soap request body, updating and deleting it")
+            @Description("This test case validates the adding, updating deleting operations of employee and then asserting response")
+            @Severity(SeverityLevel.CRITICAL)
+            @Story("Adding new employee using soap request body, updating and deleting it")
+            @Test(description = "test of adding, updating and deleting employee")
+            public void addingEmployee() {
+                employeesSteps
+                        .createRequestBody()
+                        .wrappingBodyIntoSoapRequest()
+                        .sendingRequest()
+                        .validating()
+                        .getEmployeeById()
+                        .validatingWithId()
+                        .updateEmployee()
+                        .assertingUpdatedResponse()
+                        .deletingEmployee()
+                        .tryingToGetDeletedEmployeeById();
         }
 
 }

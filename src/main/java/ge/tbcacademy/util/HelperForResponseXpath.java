@@ -1,4 +1,4 @@
-package ge.tbcacademy.data.util;
+package ge.tbcacademy.util;
 
 import javax.xml.namespace.NamespaceContext;
 import java.util.*;

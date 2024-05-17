@@ -1,6 +1,6 @@
 package ge.tbcacademy;
 
-import ge.tbcacademy.data.steps.ContinentSteps;
+import ge.tbcacademy.steps.continentSteps.ContinentSteps;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -22,12 +22,12 @@ public class ContinentTest {
     }
     @Test(description = "Validating continents data")
     @Story("Validate continent data retrieved from the service")
-    @Description("This test validates the data retrieved for continents from a SOAP service. " +
-            "It checks various aspects such as the count of 'sName' nodes, the uniqueness of 'sName' values, " +
-            "the correctness of 'sCode' and 'sName' for each continent, and ensures that the order of continents is alphabetical.")
+    @Description("This test validates the data retrieved for continents from a SOAP service " +
+            "It checks the count of sName nodes, the uniqueness of sName values" +
+            "the presence of sCode and sName for each continent, ensures that the order of continents are alphabetical.")
     public void validatingContinents() {
         continentSteps.getResponse().
-                respToXmlPath()
+                 respToXmlPath()
                 .validationCountOfSname()
                 .validatingSNameValues()
                 .validatingSNameWithScode()

@@ -1,4 +1,4 @@
-package ge.tbcacademy.data.util;
+package ge.tbcacademy.util;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;

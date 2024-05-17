@@ -1,4 +1,4 @@
-package ge.tbcacademy.data.util;
+package ge.tbcacademy.util;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeConstants;
