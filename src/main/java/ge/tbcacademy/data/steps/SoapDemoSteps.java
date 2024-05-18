@@ -7,9 +7,7 @@ import ge.tbcacademy.data.util.Marshall;
 import ge.tbcacademy.data.util.Unmarshall;
 import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.tempuri.*;
 
 import javax.xml.datatype.XMLGregorianCalendar;
