@@ -12,4 +12,5 @@ public class ConstantsForSpring {
     URL = "http://localhost:8087/ws";
     public static final String NEW_NAME = "Lali";
     public static final String ERROR_MESSAGE = "Source must not be null";
+    public static final String DEPARTMENT = "ASDFGFH";
 }

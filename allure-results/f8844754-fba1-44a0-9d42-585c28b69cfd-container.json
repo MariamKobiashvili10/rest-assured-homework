@@ -1,0 +1,1 @@
+{"uuid":"f8844754-fba1-44a0-9d42-585c28b69cfd","name":"ge.tbcacademy.EmployeeTestUnmarshalling","children":["72c5625d-94bf-41e1-aa61-0e3258c4919f"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1715962230059,"stop":1715962230191}],"afters":[],"start":1715962230017,"stop":1715962233030}

@@ -1,0 +1,1 @@
+{"uuid":"afb107ae-3322-4086-9bb7-aab93c34f492","name":"ge.tbcacademy.SoapDemoTest","children":["ccdfb62c-04c3-440d-b410-313b8645ac7c"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1716014595593,"stop":1716014595611}],"afters":[],"start":1716014595549,"stop":1716014598987}

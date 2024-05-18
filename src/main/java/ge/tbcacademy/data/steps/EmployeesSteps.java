@@ -22,7 +22,7 @@ Response response;
 GetEmployeeByIdRequest getEmployeeByIdRequest;
     UpdateEmployeeRequest updateEmployeeRequest;
 
-    @Step("creatingBody")
+    @Step("creating Body")
     public EmployeesSteps createRequestBody() {
         objectFactory = new ObjectFactory();
         employeeInfo = objectFactory.createEmployeeInfo();
