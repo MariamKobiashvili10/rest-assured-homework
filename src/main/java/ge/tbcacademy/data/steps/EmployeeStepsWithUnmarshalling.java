@@ -46,7 +46,7 @@ GetEmployeeByIdResponse getEmployeeByIdResponse;
     @Step("Wrapping body into soap request")
     public EmployeeStepsWithUnmarshalling wrappingBodyIntoSoapRequest(){
         addEmployeeRequest = new AddEmployeeRequest();
-        addEmployeeRequest.setEmployeeInfo(employeeInfo);
+        addEmployeeRequest.withEmployeeInfo(employeeInfo);
         return this;
     }
     @Step("Sending Request")
@@ -76,7 +76,7 @@ GetEmployeeByIdResponse getEmployeeByIdResponse;
     @Step("Getting employee By ID")
     public EmployeeStepsWithUnmarshalling getEmployeeById(){
         getEmployeeByIdRequest = objectFactory.createGetEmployeeByIdRequest();
-        getEmployeeByIdRequest.setEmployeeId(employeeInfo.getEmployeeId());
+        getEmployeeByIdRequest.withEmployeeId(employeeInfo.getEmployeeId());
         body = Marshall.marshallSoapRequest(getEmployeeByIdRequest);
 
 
@@ -107,7 +107,7 @@ GetEmployeeByIdResponse getEmployeeByIdResponse;
     public EmployeeStepsWithUnmarshalling updateEmployee(){
         updateEmployeeRequest = objectFactory.createUpdateEmployeeRequest();
         employeeInfo.withName(ConstantsForSpring.NEW_NAME);
-        updateEmployeeRequest.setEmployeeInfo(employeeInfo);
+        updateEmployeeRequest.withEmployeeInfo(employeeInfo);
         body = Marshall.marshallSoapRequest(updateEmployeeRequest);
         response = given()
                 .header("Content-Type", "text/xml; charset=utf-8")
